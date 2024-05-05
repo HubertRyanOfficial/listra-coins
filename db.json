@@ -9,6 +9,70 @@
       "created_at": 1714933635770
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "0231",
+      "name": "Copo Stanley",
+      "price": 200,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 30,
+      "image": "https://stanley.fbitsstatic.net/img/p/copo-termico-de-cerveja-stanley-473ml-78082/264566-5.jpg?w=495&h=500&v=no-value"
+    },
+    {
+      "id": "0232",
+      "name": "Notebook L24",
+      "price": 4000,
+      "created_at": 231231231,
+      "in_cart": false,
+      "units": 40,
+      "image": "https://i.zst.com.br/thumbs/12/3d/34/-1162794238.jpg"
+    },
+    {
+      "id": "0233",
+      "name": "Aplicativo da hora",
+      "price": 10,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 1000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYDfYUfLhi6o_Dd7XSEp0QgP8NopjhYaXgz1VDC9CDPQ&s"
+    },
+    {
+      "id": "0234",
+      "name": "Celular",
+      "price": 330,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 10,
+      "image": "https://imgs.pontofrio.com.br/55064349/1g.jpg"
+    },
+    {
+      "id": "0235",
+      "name": "Cerveja da hora",
+      "price": 6,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 12,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Bh0I1eW_m0BpAPUz1k2reu-EjiWuq6Pb3jfqSRKoOQ&s"
+    },
+    {
+      "id": "0236",
+      "name": "Criptofrafia boa",
+      "price": 100,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvUptqOm8aexZWb2nkFNcNSn1nvS026ihMEsZKiuUUA&s"
+    },
+    {
+      "id": "0237",
+      "name": "Alexia dot 3",
+      "price": 55,
+      "created_at": 1293812398,
+      "in_cart": false,
+      "units": 17,
+      "image": "https://imgs.casasbahia.com.br/1537437480/1xg.jpg"
+    }
+  ],
   "shopping": []
 }

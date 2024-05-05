@@ -1,6 +1,14 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 
+import { useShop } from "@/contexts/ShopContext";
 import { StatusBar } from "expo-status-bar";
 
 import ShopItem from "@/components/ShopItem";
@@ -8,8 +16,11 @@ import ShopItem from "@/components/ShopItem";
 import Userinfo from "./components/Userinfo";
 import Cards from "./components/Cards";
 import Button from "@/components/Button";
+import colors from "../../../colors";
 
 export default function Main() {
+  const { loading, products } = useShop();
+
   return (
     <View className="flex-1 bg-purple-heart">
       <StatusBar style="light" />
@@ -21,36 +32,25 @@ export default function Main() {
         }}
       >
         <Cards />
-        <View className="flex-row items-center justify-between mx-4 mt-8">
-          <ShopItem
-            data={{
-              id: "1",
-              name: "Copo Stanley",
-              price: 200,
-              created_at: 1293812398,
-              in_cart: false,
-              units: 30,
-              image:
-                "https://stanley.fbitsstatic.net/img/p/copo-termico-de-cerveja-stanley-473ml-78082/264566-5.jpg?w=495&h=500&v=no-value",
-            }}
-          />
-          <ShopItem
-            data={{
-              id: "1",
-              name: "Copo Stanley",
-              price: 200,
-              created_at: 1293812398,
-              in_cart: false,
-              units: 30,
-              image:
-                "https://stanley.fbitsstatic.net/img/p/copo-termico-de-cerveja-stanley-473ml-78082/264566-5.jpg?w=495&h=500&v=no-value",
-            }}
-          />
-        </View>
-        <Button
-          title="Ver todos os produtos"
-          className="self-center mt-8 mb-40"
-        />
+        {loading || products.length == 0 ? (
+          <View className="flex-1 mt-8">
+            <ActivityIndicator
+              color={colors["purple-heart"].DEFAULT}
+              size="large"
+            />
+          </View>
+        ) : (
+          <>
+            <View className="flex-row items-center justify-between mx-4 mt-8">
+              <ShopItem data={products[0]} />
+              <ShopItem data={products[1]} />
+            </View>
+            <Button
+              title="Ver todos os produtos"
+              className="self-center mt-8 mb-40"
+            />
+          </>
+        )}
       </ScrollView>
     </View>
   );
