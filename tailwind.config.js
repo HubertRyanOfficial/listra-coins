@@ -44,6 +44,10 @@ module.exports = {
           900: "#3d3d3d",
         },
       },
+      fontFamily: {
+        sora: ["Sora-Regular"],
+        soraSemibold: ["Sora-SemiBold"],
+      },
     },
   },
   plugins: [],

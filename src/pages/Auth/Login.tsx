@@ -10,7 +10,9 @@ const Login: React.FC = () => {
         <Image source={HeaderImage} />
       </View>
       <View className="rounded-t-3xl bg-alabaster flex-1">
-        <Text className="text-3xl text-mine-shaft self-center mt-8">Login</Text>
+        <Text className="text-3xl text-mine-shaft self-center mt-8 font-soraSemibold">
+          Login
+        </Text>
       </View>
     </View>
   );
