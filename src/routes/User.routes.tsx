@@ -1,19 +1,27 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Main from "@/pages/Main";
+import Shop from "@/pages/Shop";
+import Profile from "@/pages/Profile";
+import BottomTab from "@/components/BottomTab";
+import { View } from "react-native";
+import colors from "../../colors";
 
-const Stack = createNativeStackNavigator();
+const Bottom = createBottomTabNavigator();
 
 const UserRoutes: React.FC = () => {
   return (
-    <Stack.Navigator
+    <Bottom.Navigator
       screenOptions={{
         headerShown: false,
       }}
+      tabBar={(props) => <BottomTab {...props} />}
     >
-      <Stack.Screen name="Main" component={Main} />
-    </Stack.Navigator>
+      <Bottom.Screen name="Main" component={Main} />
+      <Bottom.Screen name="Shop" component={Shop} />
+      <Bottom.Screen name="Profile" component={Profile} />
+    </Bottom.Navigator>
   );
 };
 
