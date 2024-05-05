@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <Animated.View
-      className="w-full justify-center items-center pt-24 pb-14"
+      className="w-full justify-center items-center py-16"
       style={animatedStyles}
     >
       <Image source={HeaderImage} />

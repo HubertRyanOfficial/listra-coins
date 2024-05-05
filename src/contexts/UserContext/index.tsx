@@ -15,7 +15,7 @@ function UserProvider({ children }: Props) {
     user: null,
   });
 
-  const handleUser = (values: Pick<UserContextType, "user">) => {
+  const handleUser = (values: UserContextType["user"]) => {
     setData({ ...data, user: values });
   };
 

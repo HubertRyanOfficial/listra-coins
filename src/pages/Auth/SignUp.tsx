@@ -11,6 +11,7 @@ import Header from "./components/Header";
 
 import EmailIcon from "@/assets/icons/user.svg";
 import PasswordIcon from "@/assets/icons/lock.svg";
+import { useToast } from "@/components/ToastSheet";
 
 const signupSchema = z.object({
   name: z.string(),
@@ -19,6 +20,7 @@ const signupSchema = z.object({
 });
 
 const SignUp: React.FC = () => {
+  const { startToast } = useToast();
   const { control, handleSubmit } = useForm({
     defaultValues: {
       name: "Hubert",
@@ -46,9 +48,17 @@ const SignUp: React.FC = () => {
         created_at: date.valueOf(),
       });
 
-      console.log(user);
+      startToast({
+        title: "Conta criada com sucesso. ✅",
+        description: "Compre produtos e se diverta com suas compras.",
+      });
     } catch (e) {
-      console.log(e);
+      if (e === "user-already-exists") {
+        startToast({
+          title: "Já existe um usuário usando este e-mail ❌",
+          description: "Use um outro e-mail para criar conta.",
+        });
+      }
     } finally {
       setLoading(false);
     }

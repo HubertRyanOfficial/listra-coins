@@ -7,6 +7,7 @@ import { StatusBar } from "expo-status-bar";
 
 import UserProvider from "@/contexts/UserContext";
 import Routes from "@/routes/index.routes";
+import ToastSheetProvider from "@/components/ToastSheet";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,12 +29,14 @@ export default function App() {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="flex-1" onLayout={onLayoutRootView}>
-        <StatusBar style="light" />
-        <UserProvider>
-          <Routes />
-        </UserProvider>
-      </View>
+      <ToastSheetProvider>
+        <View className="flex-1" onLayout={onLayoutRootView}>
+          <StatusBar style="light" />
+          <UserProvider>
+            <Routes />
+          </UserProvider>
+        </View>
+      </ToastSheetProvider>
     </SafeAreaView>
   );
 }

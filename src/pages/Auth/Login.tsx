@@ -17,6 +17,7 @@ import { AuthStackParamList } from "@/routes/Auth.routes";
 
 import EmailIcon from "@/assets/icons/user.svg";
 import PasswordIcon from "@/assets/icons/lock.svg";
+import { useToast } from "@/components/ToastSheet";
 
 const loginSchema = z.object({
   email: z.string().email("Infome um e-mail válido"),
@@ -26,13 +27,15 @@ const loginSchema = z.object({
 const Login: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AuthStackParamList, "Login">>();
+  const { handleUser } = useUser();
+  const { startToast } = useToast();
 
   const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: "",
-      password: "",
+      email: "hubertryanofficial@gmail.com",
+      password: "123456",
     },
     resolver: zodResolver(loginSchema),
     reValidateMode: "onSubmit",
@@ -42,8 +45,19 @@ const Login: React.FC = () => {
     try {
       setLoading(true);
       const user = await loginUser(values.email, values.password);
+      handleUser(user);
     } catch (e) {
-      console.log(e);
+      if (e === "user-not-exists") {
+        startToast({
+          title: "Esse usuário não existe ❌",
+          description: "Tente outro e-mail.",
+        });
+      } else if (e == "incorrect-password") {
+        startToast({
+          title: "Senha incorreta ❌",
+          description: "Tente novamente!",
+        });
+      }
     } finally {
       setLoading(false);
     }

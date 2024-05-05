@@ -9,7 +9,7 @@ export interface UserContextValues {
 }
 
 export interface UserContextHandles {
-  handleUser: (values: Pick<UserContextValues, "user">) => void;
+  handleUser: (values: UserContextType["user"]) => void;
 }
 
 export type UserContextType = UserContextValues & UserContextHandles;
