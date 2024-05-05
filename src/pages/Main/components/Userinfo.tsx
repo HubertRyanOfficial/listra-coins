@@ -26,8 +26,10 @@ export default function Userinfo() {
               className="w-[50px] h-[50px] rounded-[20px]"
             />
           </TouchableOpacity>
-          <View className="bg-mine-shaft self-start py-1 px-2 rounded-full">
-            <Text className="text-white font-sora text-sm">Listra Coins</Text>
+          <View className="bg-mine-shaft self-start py-0.5 px-2 rounded-full">
+            <Text className="text-white font-soraSemibold text-sm">
+              Listra Coins
+            </Text>
           </View>
         </Animatable.View>
         <Animatable.View
