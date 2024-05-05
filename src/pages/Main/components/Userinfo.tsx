@@ -45,7 +45,7 @@ export default function Userinfo() {
       </View>
       <Animatable.View
         animation="fadeInUp"
-        className="absolute z-[1] top-[230px] left-0 right-0 mx-6 bg-white rounded-2xl shadow-sm flex-row items-center justify-around"
+        className="absolute z-[1] top-[195px] left-0 right-0 mx-6 bg-white rounded-2xl shadow-sm flex-row items-center justify-around"
       >
         <View className="flex-row items-center px-6 py-5">
           <WalletIcon width={30} height={30} />
