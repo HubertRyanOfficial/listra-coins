@@ -7,6 +7,7 @@ import ShopItem from "@/components/ShopItem";
 
 import Userinfo from "./components/Userinfo";
 import Cards from "./components/Cards";
+import Button from "@/components/Button";
 
 export default function Main() {
   return (
@@ -14,7 +15,7 @@ export default function Main() {
       <StatusBar style="light" />
       <Userinfo />
       <ScrollView
-        className="rounded-t-3xl bg-alabaster flex-1 mt-14"
+        className="rounded-t-3xl bg-alabaster mt-14"
         contentContainerStyle={{
           marginTop: 30,
         }}
@@ -46,6 +47,10 @@ export default function Main() {
             }}
           />
         </View>
+        <Button
+          title="Ver todos os produtos"
+          className="self-center mt-8 mb-40"
+        />
       </ScrollView>
     </View>
   );
