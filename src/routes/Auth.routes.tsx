@@ -1,7 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Login from "../pages/Auth/Login";
+import Login from "@/pages/Auth/Login";
+import SignUp from "@/pages/Auth/SignUp";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ const AuthRoutes: React.FC = () => {
       }}
     >
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
   );
 };

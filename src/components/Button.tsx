@@ -11,6 +11,7 @@ import cn from "classnames";
 
 interface Props extends TouchableOpacityProps {
   title: string;
+  loading?: boolean;
 }
 
 function Button({ title, className, ...props }: Props) {

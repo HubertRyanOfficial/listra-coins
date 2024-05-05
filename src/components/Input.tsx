@@ -6,7 +6,7 @@ import cn from "classnames";
 import colors from "../../colors";
 
 interface Props extends TextInputProps {
-  leftIcon: any;
+  leftIcon?: any;
   errors?: FieldError;
 }
 
