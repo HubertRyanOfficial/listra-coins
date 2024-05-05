@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View, ScrollView } from "react-native";
+import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,8 +8,8 @@ import { useUser } from "@/contexts/UserContext";
 
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import Header from "./components/Header";
 
-import HeaderImage from "@/assets/header-img.png";
 import EmailIcon from "@/assets/icons/user.svg";
 import PasswordIcon from "@/assets/icons/lock.svg";
 
@@ -35,9 +35,7 @@ const Login: React.FC = () => {
 
   return (
     <View className="flex-1 bg-purple-heart">
-      <View className="w-full justify-center items-center pt-24 pb-14">
-        <Image source={HeaderImage} />
-      </View>
+      <Header />
       <ScrollView
         className="rounded-t-3xl bg-alabaster flex-1"
         contentContainerStyle={{
