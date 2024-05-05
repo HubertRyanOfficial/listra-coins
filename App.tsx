@@ -1,10 +1,11 @@
 import { useCallback } from "react";
-import { View } from "react-native";
+import { View, SafeAreaView } from "react-native";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-import Routes from "./src/routes/index.routes";
+import UserProvider from "@/contexts/UserContext";
+import Routes from "@/routes/index.routes";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,8 +26,12 @@ export default function App() {
   }
 
   return (
-    <View className="flex-1" onLayout={onLayoutRootView}>
-      <Routes />
-    </View>
+    <SafeAreaView className="flex-1">
+      <View className="flex-1" onLayout={onLayoutRootView}>
+        <UserProvider>
+          <Routes />
+        </UserProvider>
+      </View>
+    </SafeAreaView>
   );
 }

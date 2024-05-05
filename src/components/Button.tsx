@@ -13,9 +13,9 @@ interface Props extends TouchableOpacityProps {
   title: string;
 }
 
-function Button({ title, className }: Props) {
+function Button({ title, className, ...props }: Props) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity {...props}>
       <View
         className={cn("bg-purple-heart py-3 px-8 self-start rounded-full", {
           [className]: !!className,
