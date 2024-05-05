@@ -3,6 +3,7 @@ import { View, SafeAreaView } from "react-native";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 
 import UserProvider from "@/contexts/UserContext";
 import Routes from "@/routes/index.routes";
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <SafeAreaView className="flex-1">
       <View className="flex-1" onLayout={onLayoutRootView}>
+        <StatusBar style="light" />
         <UserProvider>
           <Routes />
         </UserProvider>

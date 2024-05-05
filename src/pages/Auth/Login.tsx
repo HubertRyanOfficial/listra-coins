@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
 
 import { useUser } from "@/contexts/UserContext";
 
@@ -10,9 +12,11 @@ import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Header from "./components/Header";
 
+import { loginUser } from "@/services/users/auth";
+import { AuthStackParamList } from "@/routes/Auth.routes";
+
 import EmailIcon from "@/assets/icons/user.svg";
 import PasswordIcon from "@/assets/icons/lock.svg";
-import { useNavigation } from "@react-navigation/native";
 
 const loginSchema = z.object({
   email: z.string().email("Infome um e-mail válido"),
@@ -20,9 +24,11 @@ const loginSchema = z.object({
 });
 
 const Login: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackParamList, "Login">>();
 
-  const { handleLogin } = useUser();
+  const [loading, setLoading] = useState(false);
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       email: "",
@@ -32,8 +38,15 @@ const Login: React.FC = () => {
     reValidateMode: "onSubmit",
   });
 
-  const handleUserLogin = (values) => {
-    handleLogin(values);
+  const handleUserLogin = async (values) => {
+    try {
+      setLoading(true);
+      const user = await loginUser(values.email, values.password);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -65,6 +78,8 @@ const Login: React.FC = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   errors={errors["email"]}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
                 />
               )}
             />
@@ -91,6 +106,7 @@ const Login: React.FC = () => {
             className="mt-4"
             title="Entrar"
             onPress={handleSubmit(handleUserLogin)}
+            loading={loading}
           />
         </View>
         <View className="flex-row items-center gap-x-2 mt-12">

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useUser } from "@/contexts/UserContext";
+import { createUser } from "@/services/users";
 
 import Input from "@/components/Input";
 import Button from "@/components/Button";
@@ -22,15 +21,38 @@ const signupSchema = z.object({
 const SignUp: React.FC = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: "Hubert",
+      email: "hubertryanofficial@gmail.com",
+      password: "123456",
     },
     resolver: zodResolver(signupSchema),
     reValidateMode: "onSubmit",
   });
 
-  const handleUserSignUp = (values) => {};
+  const [loading, setLoading] = useState(false);
+
+  const handleUserSignUp = async (values: z.infer<typeof signupSchema>) => {
+    try {
+      setLoading(true);
+      const date = new Date();
+
+      if (!values.email || !values.password || !values.name) return;
+
+      const user = await createUser({
+        email: values.email,
+        password: values.password,
+        name: values.name,
+        balance: 100000,
+        created_at: date.valueOf(),
+      });
+
+      console.log(user);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <View className="flex-1 bg-purple-heart">
@@ -104,6 +126,7 @@ const SignUp: React.FC = () => {
             className="mt-4"
             title="Criar conta"
             onPress={handleSubmit(handleUserSignUp)}
+            loading={loading}
           />
         </View>
         <View className="flex-row items-center gap-x-2 mt-12">

@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
+  ActivityIndicator,
 } from "react-native";
 
 import cn from "classnames";
@@ -14,15 +15,20 @@ interface Props extends TouchableOpacityProps {
   loading?: boolean;
 }
 
-function Button({ title, className, ...props }: Props) {
+function Button({ title, className, loading, ...props }: Props) {
   return (
-    <TouchableOpacity {...props}>
+    <TouchableOpacity {...props} disabled={loading}>
       <View
         className={cn("bg-purple-heart py-3 px-8 self-start rounded-full", {
           [className]: !!className,
+          "py-3 px-3": !!loading,
         })}
       >
-        <Text className="font-soraSemibold text-white text-lg">{title}</Text>
+        {!loading ? (
+          <Text className="font-soraSemibold text-white text-lg">{title}</Text>
+        ) : (
+          <ActivityIndicator color={"#FFFFFF"} />
+        )}
       </View>
     </TouchableOpacity>
   );

@@ -15,12 +15,12 @@ function UserProvider({ children }: Props) {
     user: null,
   });
 
-  const handleLogin = (values: Pick<UserContextType, "user">) => {
+  const handleUser = (values: Pick<UserContextType, "user">) => {
     setData({ ...data, user: values });
   };
 
   return (
-    <UserContext.Provider value={{ ...data, handleLogin }}>
+    <UserContext.Provider value={{ ...data, handleUser }}>
       {!loading && children}
     </UserContext.Provider>
   );

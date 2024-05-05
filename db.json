@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "3435",
+      "email": "hubertryanofficial@gmail.com",
+      "password": "123456",
+      "name": "Hubert",
+      "balance": 100000,
+      "created_at": 1714918663527
+    }
+  ],
+  "products": [],
+  "shopping": []
+}

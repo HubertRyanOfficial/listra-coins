@@ -1,12 +1,15 @@
-interface UserContextValues {
+export interface UserContextValues {
   user: {
+    id: string;
     email: string;
-    password: string;
+    name: string;
+    balance: number;
+    created_at: number;
   } | null;
 }
 
-interface UserContextHandles {
-  handleLogin: (values: Pick<UserContextValues, "user">) => void;
+export interface UserContextHandles {
+  handleUser: (values: Pick<UserContextValues, "user">) => void;
 }
 
 export type UserContextType = UserContextValues & UserContextHandles;

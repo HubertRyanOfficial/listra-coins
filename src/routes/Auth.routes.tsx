@@ -6,6 +6,11 @@ import SignUp from "@/pages/Auth/SignUp";
 
 const Stack = createNativeStackNavigator();
 
+export type AuthStackParamList = {
+  Login: undefined;
+  SignUp: undefined;
+};
+
 const AuthRoutes: React.FC = () => {
   return (
     <Stack.Navigator
