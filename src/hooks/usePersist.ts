@@ -7,10 +7,12 @@ export default function usePersist<T>(
 ): [
   value: T,
   setNewValue: (newValue: T) => void,
-  clearValue: () => Promise<T>
+  clearValue: () => Promise<T>,
+  loading: boolean
 ] {
   const originalKey = `rn-persisted-context-data-${key}`;
 
+  const [loading, setLoading] = useState(true);
   const [value, setValue] = useState(initialState);
 
   const getPersistedData = useCallback(async () => {
@@ -20,6 +22,7 @@ export default function usePersist<T>(
       const result = JSON.parse(persistedData);
       setValue(result);
     }
+    setLoading(false);
   }, [originalKey]);
 
   const setNewValue = useCallback(
@@ -43,5 +46,5 @@ export default function usePersist<T>(
     getPersistedData();
   }, [getPersistedData]);
 
-  return [value, setNewValue, clearAllPersistData];
+  return [value, setNewValue, clearAllPersistData, loading];
 }

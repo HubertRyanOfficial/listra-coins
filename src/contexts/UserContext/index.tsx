@@ -11,7 +11,7 @@ interface Props {
 const UserContext = createContext({} as UserContextType);
 
 function UserProvider({ children }: Props) {
-  const [data, setData, clear] = usePersist("userContext", {
+  const [data, setData, clear, loading] = usePersist("userContext", {
     user: null,
   });
 
@@ -21,7 +21,7 @@ function UserProvider({ children }: Props) {
 
   return (
     <UserContext.Provider value={{ ...data, handleLogin }}>
-      {children}
+      {!loading && children}
     </UserContext.Provider>
   );
 }
