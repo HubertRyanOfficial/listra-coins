@@ -13,7 +13,7 @@ export default function Userinfo() {
   const { user } = useUser();
   return (
     <>
-      <View className="px-6 mt-16">
+      <View className="px-6 mt-14">
         <Animatable.View
           animation="fadeIn"
           className="flex-row justify-between"

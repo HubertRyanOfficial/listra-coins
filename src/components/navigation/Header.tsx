@@ -7,7 +7,7 @@ import BackIcon from "@/assets/icons/back.svg";
 
 function Header({ navigation }: BottomTabHeaderProps) {
   return (
-    <View className="bg-purple-heart pt-[48px] px-4 flex-row items-center">
+    <View className="bg-purple-heart pt-[50px] px-4 flex-row items-center">
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View className="flex-row items-center">
           <BackIcon />

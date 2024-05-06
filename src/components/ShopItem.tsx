@@ -84,13 +84,13 @@ export default function ShopItem({ data, userId }: Props) {
             </Text>
           </View>
           <TouchableOpacity onPress={handleAddInCart} disabled={inCart}>
-            <View className="bg-purple-heart w-[38px] h-[38px] justify-center items-center rounded-lg">
+            <View className="bg-purple-heart w-[33px] h-[33px] justify-center items-center rounded-xl">
               {loading && !inCart ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : !inCart ? (
-                <ShopCartAddIcon width={19} height={19} color="#FFFFFF" />
+                <ShopCartAddIcon width={18} height={18} color="#FFFFFF" />
               ) : (
-                <CheckCircleIcon width={19} height={19} />
+                <CheckCircleIcon width={18} height={18} />
               )}
             </View>
           </TouchableOpacity>
