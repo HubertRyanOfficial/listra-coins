@@ -11,7 +11,7 @@ import BankIcon from "@/assets/icons/bank.svg";
 import HistoricIcon from "@/assets/icons/historic.svg";
 
 export default function Profile() {
-  const { user } = useUser();
+  const { user, handleSignOut } = useUser();
   return (
     <View className="flex-1 bg-purple-heart">
       <View className="mt-14 flex-col items-center">
@@ -44,6 +44,11 @@ export default function Profile() {
         <OptionButton leftIcon={<DetailsIcon />} title="Detalhes do Perfil" />
         <OptionButton leftIcon={<BankIcon />} title="Detalhes da Conta" />
         <OptionButton leftIcon={<HistoricIcon />} title="Histórico" />
+        <Button
+          title="Sair"
+          className="self-center mt-12 pb-32"
+          onPress={handleSignOut}
+        />
       </ScrollView>
     </View>
   );

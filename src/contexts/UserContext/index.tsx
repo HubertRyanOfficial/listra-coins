@@ -19,8 +19,12 @@ function UserProvider({ children }: Props) {
     setData({ ...data, user: values });
   };
 
+  const handleSignOut = () => {
+    clear();
+  };
+
   return (
-    <UserContext.Provider value={{ ...data, handleUser }}>
+    <UserContext.Provider value={{ ...data, handleUser, handleSignOut }}>
       {!loading && children}
     </UserContext.Provider>
   );

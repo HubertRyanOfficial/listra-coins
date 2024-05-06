@@ -10,6 +10,7 @@ export interface UserContextValues {
 
 export interface UserContextHandles {
   handleUser: (values: UserContextType["user"]) => void;
+  handleSignOut: () => void;
 }
 
 export type UserContextType = UserContextValues & UserContextHandles;
