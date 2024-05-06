@@ -7,6 +7,7 @@ import Main from "@/pages/Main";
 import Shop from "@/pages/Shop";
 import Profile from "@/pages/Profile";
 import BottomTab from "@/components/BottomTab";
+import Header from "@/components/navigation/Header";
 
 export type BottomTabParamList = {
   Main: undefined;
@@ -21,13 +22,25 @@ const UserRoutes: React.FC = () => {
     <ShopProvider>
       <Bottom.Navigator
         screenOptions={{
-          headerShown: false,
+          header: (props) => <Header {...props} />,
         }}
         tabBar={(props) => <BottomTab {...props} />}
       >
-        <Bottom.Screen name="Main" component={Main} />
+        <Bottom.Screen
+          name="Main"
+          options={{
+            headerShown: false,
+          }}
+          component={Main}
+        />
         <Bottom.Screen name="Shop" component={Shop} />
-        <Bottom.Screen name="Profile" component={Profile} />
+        <Bottom.Screen
+          name="Profile"
+          options={{
+            headerShown: false,
+          }}
+          component={Profile}
+        />
       </Bottom.Navigator>
     </ShopProvider>
   );
