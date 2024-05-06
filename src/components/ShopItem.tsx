@@ -40,8 +40,8 @@ export default function ShopItem({ data, userId }: Props) {
       await addToCart(data, userId);
 
       startToast({
-        title: `O ${data.name} está à caminho! 🥳`,
-        description: "🎁 Parabéns, sua compra foi confirmada!",
+        title: data.name,
+        description: "Adicionado no carrinho ✅",
       });
       setInCart(!inCart);
     } catch (error) {
