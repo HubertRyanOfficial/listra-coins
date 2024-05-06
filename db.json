@@ -71,25 +71,8 @@
       "created_at": 1293812398,
       "in_cart": false,
       "units": 17,
-      "image": "https://imgs.casasbahia.com.br/1537437480/1xg.jpg"
+      "image": "https://imgs.pontofrio.com.br/1556841295/1xg.jpg"
     }
   ],
-  "shopping": [
-    {
-      "id": "8b9c",
-      "product_id": "0231",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 200,
-      "created_at": 1714994388665
-    },
-    {
-      "id": "5ca9",
-      "product_id": "0232",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 4000,
-      "created_at": 1714994412558
-    }
-  ]
+  "shopping": []
 }

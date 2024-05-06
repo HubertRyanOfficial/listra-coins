@@ -87,7 +87,7 @@ function ToastSheetProvider({ children }: Props) {
       {children}
       {data.title && data.description && (
         <Animated.View
-          className="z-[1] absolute bottom-8 mx-4 px-6 pt-4 bg-white rounded-3xl shadow"
+          className="z-[1] absolute bottom-20 mx-4 px-6 pt-4 bg-white rounded-3xl shadow"
           style={[
             {
               width: width - 40,

@@ -56,7 +56,7 @@ export default function ShopItem({ data, userId }: Props) {
 
   return (
     <View
-      className="bg-white self-start rounded-2xl"
+      className="bg-white self-start rounded-2xl shadow"
       style={{
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
@@ -70,7 +70,9 @@ export default function ShopItem({ data, userId }: Props) {
         style={{ width: CARD_WIDTH, height: CARD_HEIGHT / 2 - 10 }}
       />
       <View className="p-4">
-        <Text className="font-soraSemibold text-base">{data.name}</Text>
+        <Text className="font-soraSemibold text-base" numberOfLines={1}>
+          {data.name}
+        </Text>
         <Text className="font-sora text-xs text-alabaster-300 mt-1">
           {data.units} unidades
         </Text>

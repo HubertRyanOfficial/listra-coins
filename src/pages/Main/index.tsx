@@ -32,6 +32,7 @@ export default function Main() {
         contentContainerStyle={{
           marginTop: 30,
         }}
+        showsVerticalScrollIndicator={false}
       >
         <Cards />
         {loading || products.length == 0 ? (
