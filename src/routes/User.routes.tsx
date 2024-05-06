@@ -8,7 +8,13 @@ import Shop from "@/pages/Shop";
 import Profile from "@/pages/Profile";
 import BottomTab from "@/components/BottomTab";
 
-const Bottom = createBottomTabNavigator();
+export type BottomTabParamList = {
+  Main: undefined;
+  Shop: undefined;
+  Profile: undefined;
+};
+
+const Bottom = createBottomTabNavigator<BottomTabParamList>();
 
 const UserRoutes: React.FC = () => {
   return (

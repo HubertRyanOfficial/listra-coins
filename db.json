@@ -74,5 +74,38 @@
       "image": "https://imgs.pontofrio.com.br/1556841295/1xg.jpg"
     }
   ],
-  "shopping": []
+  "shopping": [
+    {
+      "id": "0efa",
+      "product_id": "0235",
+      "user_id": "0932",
+      "quantity": 1,
+      "total_paid": 6,
+      "created_at": 1714996794687
+    },
+    {
+      "id": "7827",
+      "product_id": "0231",
+      "user_id": "0932",
+      "quantity": 1,
+      "total_paid": 200,
+      "created_at": 1714998994576
+    },
+    {
+      "id": "5963",
+      "product_id": "0232",
+      "user_id": "0932",
+      "quantity": 1,
+      "total_paid": 4000,
+      "created_at": 1714999009489
+    },
+    {
+      "id": "1b10",
+      "product_id": "0237",
+      "user_id": "0932",
+      "quantity": 1,
+      "total_paid": 55,
+      "created_at": 1715001230544
+    }
+  ]
 }

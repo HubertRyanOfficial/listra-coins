@@ -1,27 +1,27 @@
 import React from "react";
 import { View, Text, FlatList, Dimensions, ListRenderItem } from "react-native";
 
-interface Props {
+interface Props<T> {
   componentKey: string;
-  data: any[];
+  data: T[];
   title: string;
   renderItem: ({
     item,
     index,
   }: {
-    item: any;
+    item: T;
     index: number;
   }) => React.ReactNode | React.ReactNode;
 }
 
 const { width, height } = Dimensions.get("window");
 
-export default function ColumnList({
+export default function ColumnList<T>({
   componentKey,
   data,
   renderItem,
   title,
-}: Props) {
+}: Props<T>) {
   return (
     <FlatList
       key={componentKey}
@@ -37,7 +37,7 @@ export default function ColumnList({
           {renderItem({ item, index })}
         </View>
       )}
-      keyExtractor={(item) => String(item.id)}
+      keyExtractor={(item) => String(item["id"])}
       contentContainerStyle={{
         flexDirection: "column",
         paddingHorizontal: 8,

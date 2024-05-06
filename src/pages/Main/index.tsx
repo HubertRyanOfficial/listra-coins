@@ -1,25 +1,24 @@
 import React from "react";
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  ActivityIndicator,
-} from "react-native";
+import { View, ScrollView, ActivityIndicator } from "react-native";
 
 import { useShop } from "@/contexts/ShopContext";
 import { StatusBar } from "expo-status-bar";
 
+import { useUser } from "@/contexts/UserContext";
 import ShopItem from "@/components/ShopItem";
 
 import Userinfo from "./components/Userinfo";
 import Cards from "./components/Cards";
 import Button from "@/components/Button";
 import colors from "../../../colors";
-import { useUser } from "@/contexts/UserContext";
+import { useNavigation } from "@react-navigation/native";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { BottomTabParamList } from "@/routes/User.routes";
 
 export default function Main() {
+  const navigation =
+    useNavigation<BottomTabNavigationProp<BottomTabParamList, "Main">>();
+
   const { user } = useUser();
   const { loading, products } = useShop();
 
@@ -51,6 +50,7 @@ export default function Main() {
             <Button
               title="Ver todos os produtos"
               className="self-center mt-8 mb-40"
+              onPress={() => navigation.navigate("Shop")}
             />
           </>
         )}
