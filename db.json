@@ -1,28 +1,22 @@
 {
   "users": [
     {
-      "id": "0932",
+      "id": "18b8",
       "email": "hubertryanofficial@gmail.com",
       "password": "123456",
-      "name": "Hubert",
+      "name": "Hubert ",
       "balance": 100000,
-      "created_at": 1714933635770
+      "created_at": 1715013784219,
+      "profileImage": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252Flistra-coins-5badcc6c-0794-45d0-ac76-9c71481253b1/ImagePicker/35bdb5c4-8a45-4366-88cc-53a390358292.jpeg"
     },
     {
-      "id": "a369",
-      "email": "hubert@gmail.com",
-      "password": "123456",
-      "name": "Hubert",
+      "id": "81ae",
+      "email": "test@gmail.com",
+      "password": "123456789",
+      "name": "Teste",
       "balance": 100000,
-      "created_at": 1715004240087
-    },
-    {
-      "id": "0e1f",
-      "email": "hubertryancial@gmail.com",
-      "password": "123456",
-      "name": "Hubert",
-      "balance": 100000,
-      "created_at": 1715004339123
+      "created_at": 1715014063430,
+      "profileImage": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252Flistra-coins-5badcc6c-0794-45d0-ac76-9c71481253b1/ImagePicker/5d441948-020b-4c5f-bbbf-912802d13ec9.jpeg"
     }
   ],
   "products": [
@@ -90,54 +84,5 @@
       "image": "https://imgs.pontofrio.com.br/1556841295/1xg.jpg"
     }
   ],
-  "shopping": [
-    {
-      "id": "0efa",
-      "product_id": "0235",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 6,
-      "created_at": 1714996794687
-    },
-    {
-      "id": "7827",
-      "product_id": "0231",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 200,
-      "created_at": 1714998994576
-    },
-    {
-      "id": "5963",
-      "product_id": "0232",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 4000,
-      "created_at": 1714999009489
-    },
-    {
-      "id": "1b10",
-      "product_id": "0237",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 55,
-      "created_at": 1715001230544
-    },
-    {
-      "id": "fba4",
-      "product_id": "0233",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 10,
-      "created_at": 1715001533349
-    },
-    {
-      "id": "9210",
-      "product_id": "0234",
-      "user_id": "0932",
-      "quantity": 1,
-      "total_paid": 330,
-      "created_at": 1715001539409
-    }
-  ]
+  "shopping": []
 }

@@ -1,16 +1,24 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
 import * as Animatable from "react-native-animatable";
 
 import WalletIcon from "@/assets/icons/wallet.svg";
 import NotificationIcon from "@/assets/icons/notification.svg";
 import ShopBagIcon from "@/assets/icons/shopping-bag.svg";
+import ProfileIcon from "@/assets/icons/profile.svg";
 
 import { useUser } from "@/contexts/UserContext";
+import colors from "../../../../colors";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { BottomTabParamList } from "@/routes/User.routes";
 
 export default function Userinfo() {
+  const navigation =
+    useNavigation<BottomTabNavigationProp<BottomTabParamList, "Main">>();
   const { user } = useUser();
+
   return (
     <>
       <View className="px-6 mt-14">
@@ -18,13 +26,23 @@ export default function Userinfo() {
           animation="fadeIn"
           className="flex-row justify-between"
         >
-          <TouchableOpacity>
-            <Image
-              source={{
-                uri: "https://media.licdn.com/dms/image/D4D03AQHAbMt1YjOaMw/profile-displayphoto-shrink_800_800/0/1666360120259?e=1720656000&v=beta&t=HRPRFzI0Mo2TB4KazvWkJInILnp3jZ1i1SQBPz26gy0",
-              }}
-              className="w-[50px] h-[50px] rounded-[20px]"
-            />
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            {!user.profileImage ? (
+              <View className="w-[50px] h-[50px] rounded-[20px] bg-white justify-center items-center">
+                <ProfileIcon
+                  width={20}
+                  height={20}
+                  color={colors["purple-heart"].DEFAULT}
+                />
+              </View>
+            ) : (
+              <Image
+                source={{
+                  uri: user.profileImage,
+                }}
+                className="w-[50px] h-[50px] rounded-[20px]"
+              />
+            )}
           </TouchableOpacity>
           <View className="bg-mine-shaft self-start py-0.5 px-2 rounded-full">
             <Text className="text-white font-soraSemibold text-sm">

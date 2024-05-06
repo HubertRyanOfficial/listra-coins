@@ -32,8 +32,6 @@ function ToastSheetProvider({ children }: Props) {
   });
 
   const startToast = (newData: ToastProps) => {
-    console.log("Running animation");
-
     setData(newData);
     translateValue.value = withTiming(1, {
       duration: 500,

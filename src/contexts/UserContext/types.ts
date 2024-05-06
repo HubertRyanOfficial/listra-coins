@@ -5,11 +5,13 @@ export interface UserContextValues {
     name: string;
     balance: number;
     created_at: number;
+    profileImage: string | null;
   } | null;
 }
 
 export interface UserContextHandles {
   handleUser: (values: UserContextType["user"]) => void;
+  handleUpdateUserProfile: (file: string) => void;
   handleSignOut: () => void;
 }
 

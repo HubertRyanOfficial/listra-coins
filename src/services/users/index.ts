@@ -15,3 +15,12 @@ export const createUser = async (data: UserPostType) => {
   const user = await api.post("/users", data);
   return user.data;
 };
+
+export const updateUser = async (data: Partial<UserPostType>, userId) => {
+  const user = await api.get(`/users/${userId}`);
+  const response = await api.put<UserGetType>(`/users/${userId}`, {
+    ...user.data,
+    ...data,
+  });
+  return response.data;
+};

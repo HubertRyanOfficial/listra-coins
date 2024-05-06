@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
 
 import usePersist from "@/hooks/usePersist";
 
@@ -15,16 +15,34 @@ function UserProvider({ children }: Props) {
     user: null,
   });
 
-  const handleUser = (values: UserContextType["user"]) => {
-    setData({ ...data, user: values });
-  };
+  const handleUser = useCallback(
+    (values: UserContextType["user"]) => {
+      setData({ ...data, user: values });
+    },
+    [data]
+  );
 
-  const handleSignOut = () => {
+  const handleUpdateUserProfile = useCallback(
+    (file) => {
+      setData({
+        ...data,
+        user: {
+          ...data.user,
+          profileImage: file,
+        },
+      });
+    },
+    [data]
+  );
+
+  const handleSignOut = useCallback(() => {
     clear();
-  };
+  }, []);
 
   return (
-    <UserContext.Provider value={{ ...data, handleUser, handleSignOut }}>
+    <UserContext.Provider
+      value={{ ...data, handleUser, handleSignOut, handleUpdateUserProfile }}
+    >
       {!loading && children}
     </UserContext.Provider>
   );

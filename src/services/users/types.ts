@@ -4,6 +4,7 @@ export type UserPostType = {
   name: string;
   balance: number;
   created_at: number;
+  profileImage: string | null;
 };
 
 export type UserGetType = UserPostType & {
