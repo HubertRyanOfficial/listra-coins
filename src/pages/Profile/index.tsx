@@ -1,5 +1,7 @@
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+
+import * as Animatable from "react-native-animatable";
 
 import { useUser } from "@/contexts/UserContext";
 import Button from "@/components/Button";
@@ -14,7 +16,10 @@ export default function Profile() {
   const { user, handleSignOut } = useUser();
   return (
     <View className="flex-1 bg-purple-heart">
-      <View className="mt-14 flex-col items-center">
+      <Animatable.View
+        animation="fadeInUp"
+        className="mt-14 flex-col items-center"
+      >
         <View className="bg-white w-[96px] h-[96px] rounded-3xl">
           <View className="absolute inset-0 border-4 border-[#FFFFFF40] flex-1 rounded-3xl z-[1] w-[96px] h-[96px]" />
           <Image
@@ -33,7 +38,7 @@ export default function Profile() {
           {user.name}
         </Text>
         <Button title="Editar Perfil" backgroundColor="bg-mine-shaft" />
-      </View>
+      </Animatable.View>
       <ScrollView
         className="rounded-t-3xl bg-alabaster mt-10 px-4"
         contentContainerStyle={{
