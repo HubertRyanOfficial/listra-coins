@@ -7,6 +7,22 @@
       "name": "Hubert",
       "balance": 100000,
       "created_at": 1714933635770
+    },
+    {
+      "id": "a369",
+      "email": "hubert@gmail.com",
+      "password": "123456",
+      "name": "Hubert",
+      "balance": 100000,
+      "created_at": 1715004240087
+    },
+    {
+      "id": "0e1f",
+      "email": "hubertryancial@gmail.com",
+      "password": "123456",
+      "name": "Hubert",
+      "balance": 100000,
+      "created_at": 1715004339123
     }
   ],
   "products": [

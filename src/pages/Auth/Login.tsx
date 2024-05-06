@@ -34,8 +34,8 @@ const Login: React.FC = () => {
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: "hubertryanofficial@gmail.com",
-      password: "123456",
+      email: "",
+      password: "",
     },
     resolver: zodResolver(loginSchema),
     reValidateMode: "onSubmit",

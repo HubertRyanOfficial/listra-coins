@@ -4,6 +4,8 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createUser } from "@/services/users";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack/lib/typescript/src/types";
 
 import Input from "@/components/Input";
 import Button from "@/components/Button";
@@ -12,6 +14,7 @@ import Header from "./components/Header";
 import EmailIcon from "@/assets/icons/user.svg";
 import PasswordIcon from "@/assets/icons/lock.svg";
 import { useToast } from "@/components/ToastSheet";
+import { AuthStackParamList } from "@/routes/Auth.routes";
 
 const signupSchema = z.object({
   name: z.string(),
@@ -20,12 +23,14 @@ const signupSchema = z.object({
 });
 
 const SignUp: React.FC = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackParamList, "SignUp">>();
   const { startToast } = useToast();
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      name: "Hubert",
-      email: "hubertryanofficial@gmail.com",
-      password: "123456",
+      name: "",
+      email: "",
+      password: "",
     },
     resolver: zodResolver(signupSchema),
     reValidateMode: "onSubmit",
@@ -40,7 +45,7 @@ const SignUp: React.FC = () => {
 
       if (!values.email || !values.password || !values.name) return;
 
-      const user = await createUser({
+      await createUser({
         email: values.email,
         password: values.password,
         name: values.name,
@@ -50,8 +55,9 @@ const SignUp: React.FC = () => {
 
       startToast({
         title: "Conta criada com sucesso. ✅",
-        description: "Compre produtos e se diverta com suas compras.",
+        description: "Faça o login e comece suas compras",
       });
+      navigation.goBack();
     } catch (e) {
       if (e === "user-already-exists") {
         startToast({
