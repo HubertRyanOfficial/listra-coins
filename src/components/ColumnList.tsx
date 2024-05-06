@@ -25,7 +25,7 @@ export default function ColumnList<T>({
   return (
     <FlatList
       key={componentKey}
-      className="rounded-t-3xl bg-alabaster mt-14"
+      className="rounded-t-3xl bg-alabaster mt-4"
       data={data}
       numColumns={2}
       renderItem={({ item, index }) => (

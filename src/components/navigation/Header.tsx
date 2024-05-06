@@ -11,7 +11,9 @@ function Header({ navigation }: BottomTabHeaderProps) {
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View className="flex-row items-center">
           <BackIcon />
-          <Text className="ml-4 font-soraSemibold text-white">Voltar</Text>
+          <Text className="ml-4 font-soraSemibold text-white text-sm">
+            Voltar
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
