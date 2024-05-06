@@ -6,6 +6,7 @@ export interface UserContextValues {
     balance: number;
     created_at: number;
     profileImage: string | null;
+    notificationToken: string | null;
   } | null;
 }
 

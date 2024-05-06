@@ -4,12 +4,21 @@ import { View, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import * as Notifications from "expo-notifications";
 
 import UserProvider from "@/contexts/UserContext";
 import Routes from "@/routes/index.routes";
 import ToastSheetProvider from "@/components/ToastSheet";
 
 SplashScreen.preventAutoHideAsync();
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "187851376769",
+    "project_id": "listra-coins",
+    "storage_bucket": "listra-coins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187851376769:android:929dc3b42b42b98189e580",
+        "android_client_info": {
+          "package_name": "com.hubertryanofficial.listracoins"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3TqQuEcQP97rzsZi4sVEY4aygqXJrxX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

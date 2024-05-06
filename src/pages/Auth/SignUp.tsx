@@ -52,6 +52,7 @@ const SignUp: React.FC = () => {
         balance: 100000,
         created_at: date.valueOf(),
         profileImage: null,
+        notificationToken: null,
       });
 
       startToast({
