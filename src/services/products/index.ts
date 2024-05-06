@@ -1,5 +1,6 @@
 import api from "@/config/api";
-import { Product, ShoppingItemType } from "./types";
+import { ShoppingItemType } from "../Shopping/types";
+import { Product } from "./types";
 
 export const getAllProducts = async (userId: string) => {
   const responses = await Promise.all([

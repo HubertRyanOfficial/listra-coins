@@ -17,8 +17,10 @@ import Userinfo from "./components/Userinfo";
 import Cards from "./components/Cards";
 import Button from "@/components/Button";
 import colors from "../../../colors";
+import { useUser } from "@/contexts/UserContext";
 
 export default function Main() {
+  const { user } = useUser();
   const { loading, products } = useShop();
 
   return (
@@ -42,8 +44,8 @@ export default function Main() {
         ) : (
           <>
             <View className="flex-row items-center justify-between mx-4 mt-8">
-              <ShopItem data={products[0]} />
-              <ShopItem data={products[1]} />
+              <ShopItem data={products[0]} userId={user.id} />
+              <ShopItem data={products[1]} userId={user.id} />
             </View>
             <Button
               title="Ver todos os produtos"

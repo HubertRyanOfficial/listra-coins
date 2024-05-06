@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   View,
   Text,
@@ -9,10 +9,15 @@ import {
 } from "react-native";
 
 import { Product } from "@/services/products/types";
+import { addToCart } from "@/services/Shopping";
+
+import { useToast } from "./ToastSheet";
 
 import ShopCartAddIcon from "@/assets/icons/shopping-add.svg";
+import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 
 interface Props {
+  userId: string;
   data: Product & {
     in_cart: boolean;
   };
@@ -23,9 +28,31 @@ const { width } = Dimensions.get("window");
 const CARD_WIDTH = width / 2 - 25;
 const CARD_HEIGHT = CARD_WIDTH + 70;
 
-export default function ShopItem({ data }: Props) {
+export default function ShopItem({ data, userId }: Props) {
+  const { startToast } = useToast();
   const [inCart, setInCart] = useState(data.in_cart || false);
   const [loading, setLoading] = useState(false);
+
+  const handleAddInCart = useCallback(async () => {
+    try {
+      setLoading(true);
+
+      await addToCart(data, userId);
+
+      startToast({
+        title: `O ${data.name} está à caminho! 🥳`,
+        description: "🎁 Parabéns, sua compra foi confirmada!",
+      });
+      setInCart(!inCart);
+    } catch (error) {
+      startToast({
+        title: "Houve um error ao adicionar",
+        description: "Tente adicionar ao carrinho novamente",
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [inCart]);
 
   return (
     <View
@@ -54,12 +81,14 @@ export default function ShopItem({ data }: Props) {
               {data.price.toFixed(2)}
             </Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleAddInCart} disabled={inCart}>
             <View className="bg-purple-heart w-[38px] h-[38px] justify-center items-center rounded-lg">
               {loading && !inCart ? (
                 <ActivityIndicator color="#FFFFFF" />
-              ) : (
+              ) : !inCart ? (
                 <ShopCartAddIcon width={19} height={19} color="#FFFFFF" />
+              ) : (
+                <CheckCircleIcon width={19} height={19} />
               )}
             </View>
           </TouchableOpacity>

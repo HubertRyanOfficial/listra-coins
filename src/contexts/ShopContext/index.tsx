@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
 } from "react";
 
@@ -25,12 +26,15 @@ function ShopProvider({ children }: Props) {
     ProductItem[]
   >("ShopContext", []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getProducts();
   }, []);
 
   const getProducts = useCallback(async () => {
     const allProducts = await getAllProducts(user.id);
+
+    console.log(allProducts.filter((item) => item.in_cart));
+
     setProducts(allProducts);
     setLoading(false);
   }, []);
