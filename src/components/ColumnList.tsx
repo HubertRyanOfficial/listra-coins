@@ -30,6 +30,7 @@ export default function ColumnList<T>({
       numColumns={2}
       renderItem={({ item, index }) => (
         <View
+          testID={`item-list-child-${index + 1}`}
           style={{
             marginLeft: width / 35,
           }}

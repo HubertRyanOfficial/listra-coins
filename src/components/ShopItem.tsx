@@ -82,16 +82,26 @@ export default function ShopItem({ data, userId }: Props) {
           style={{ width: CARD_WIDTH, height: CARD_HEIGHT / 2 - 10 }}
         />
         <View className="p-4">
-          <Text className="font-soraSemibold text-base" numberOfLines={1}>
+          <Text
+            testID={`shop-item-${data.id}-name`}
+            className="font-soraSemibold text-base"
+            numberOfLines={1}
+          >
             {data.name}
           </Text>
-          <Text className="font-sora text-xs text-alabaster-300 mt-1">
+          <Text
+            testID={`shop-item-${data.id}-units`}
+            className="font-sora text-xs text-alabaster-300 mt-1"
+          >
             {data.units} unidades
           </Text>
           <View className="pl-2 mt-3.5 flex-row items-center justify-between">
             <View>
               <Text className="font-sora text-xs text-purple-heart">Lc</Text>
-              <Text className="font-soraSemibold text-lg text-purple-heart -mt-1">
+              <Text
+                testID={`shop-item-${data.id}-price`}
+                className="font-soraSemibold text-lg text-purple-heart -mt-1"
+              >
                 {data.price.toFixed(2)}
               </Text>
             </View>
