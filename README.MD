@@ -53,10 +53,8 @@ To install and run the ListraCoins project in your development environment, foll
 2. Start the Expo project:
 
    ```
-   expo start
+   npx expo start
    ```
-
-3. Expo will open a web page with options to run the application on an emulator, physical device, or browser. Follow the provided instructions to run the application.
 
 ## Project Overview
 
