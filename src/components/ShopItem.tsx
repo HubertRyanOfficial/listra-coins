@@ -56,7 +56,7 @@ export default function ShopItem({ data, userId }: Props) {
     }
   }, [inCart]);
 
-  const handleShare = () => async () => {
+  const handleShare = async () => {
     const isAvailable = await Sharing.isAvailableAsync();
     if (isAvailable) {
       Sharing.shareAsync(data.image, {
