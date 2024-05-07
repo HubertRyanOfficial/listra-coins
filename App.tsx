@@ -40,7 +40,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView className="flex-1" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-purple-heart" edges={["top"]}>
       <ToastSheetProvider>
         <View className="flex-1" onLayout={onLayoutRootView}>
           <StatusBar

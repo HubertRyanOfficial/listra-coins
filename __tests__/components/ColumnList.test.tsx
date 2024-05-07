@@ -52,7 +52,7 @@ describe("ColumnList component", () => {
     expect(getByText("Test Title")).toBeTruthy();
   });
 
-  it("renders items using provided renderItem function", () => {
+  test("renders items using provided renderItem function", () => {
     const renderItem = jest.fn();
     const { getByText } = render(
       <ColumnList
@@ -67,7 +67,7 @@ describe("ColumnList component", () => {
     expect(renderItem).toHaveBeenCalledTimes(mockData.length);
   });
 
-  it("renders shop items with given data", () => {
+  test("renders shop items with given data", () => {
     const renderItem = jest.fn(({ item }) => (
       <ShopItem data={item} userId="user123" />
     ));
