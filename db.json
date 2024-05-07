@@ -1,15 +1,5 @@
 {
-  "users": [
-    {
-      "id": "7434",
-      "email": "hubertryanofficial@gmail.com",
-      "password": "123456",
-      "name": "Hubert ",
-      "balance": 100000,
-      "created_at": 1715024641100,
-      "profileImage": "file:///Users/hubertryan/Library/Developer/CoreSimulator/Devices/52742A88-CD06-4F3C-B3FB-F29A673859C8/data/Containers/Data/Application/45A8167A-BE94-4D2B-AC36-1C05EFBF8C16/Library/Caches/ExponentExperienceData/@hubertryanofficial/listra-coins/ImagePicker/93B8EB0E-F13B-4228-B9E8-26DC049807D8.jpg"
-    }
-  ],
+  "users": [],
   "products": [
     {
       "id": "0231",
@@ -75,54 +65,5 @@
       "image": "https://imgs.pontofrio.com.br/1556841295/1xg.jpg"
     }
   ],
-  "shopping": [
-    {
-      "id": "fc3e",
-      "product_id": "0232",
-      "user_id": "18b8",
-      "quantity": 1,
-      "total_paid": 4000,
-      "created_at": 1715014806897
-    },
-    {
-      "id": "c2e6",
-      "product_id": "0231",
-      "user_id": "18b8",
-      "quantity": 1,
-      "total_paid": 200,
-      "created_at": 1715014809798
-    },
-    {
-      "id": "76db",
-      "product_id": "0231",
-      "user_id": "7434",
-      "quantity": 1,
-      "total_paid": 200,
-      "created_at": 1715027711045
-    },
-    {
-      "id": "fb36",
-      "product_id": "0232",
-      "user_id": "7434",
-      "quantity": 1,
-      "total_paid": 4000,
-      "created_at": 1715027715669
-    },
-    {
-      "id": "6437",
-      "product_id": "0237",
-      "user_id": "7434",
-      "quantity": 1,
-      "total_paid": 55,
-      "created_at": 1715027724667
-    },
-    {
-      "id": "1b1f",
-      "product_id": "0235",
-      "user_id": "7434",
-      "quantity": 1,
-      "total_paid": 6,
-      "created_at": 1715027727490
-    }
-  ]
+  "shopping": []
 }
