@@ -15,6 +15,8 @@ export const loginUser = async (email: string, password: string) => {
         name: currentUser.name,
         balance: currentUser.balance,
         created_at: currentUser.created_at,
+        profileImage: currentUser.profileImage,
+        notificationToken: currentUser.notificationToken,
       };
     } else {
       throw "incorrect-password";

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loginUser throws error for incorrect password: incorrect-password 1`] = `undefined`;
+
+exports[`loginUser throws error for user not exists: user-not-exists 1`] = `undefined`;
