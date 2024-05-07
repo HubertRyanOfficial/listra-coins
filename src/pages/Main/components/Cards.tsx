@@ -8,18 +8,6 @@ const ITEM_WIDTH = width - 40 - 20;
 function Cards() {
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const handleScroll = (event: any) => {
-    const scrollX = event.nativeEvent.contentOffset.x;
-    const centerOffset = (width - ITEM_WIDTH) / 2;
-    const centerIndex = Math.floor((scrollX + centerOffset) / ITEM_WIDTH);
-    const newScrollX = centerIndex * ITEM_WIDTH - centerOffset;
-
-    // Scroll para o item central
-    scrollViewRef.current?.scrollTo({
-      x: newScrollX,
-      animated: false,
-    });
-  };
   return (
     <ScrollView
       ref={scrollViewRef}
@@ -31,8 +19,6 @@ function Cards() {
       }}
       pagingEnabled
       showsHorizontalScrollIndicator={false}
-      onScroll={handleScroll}
-      scrollEventThrottle={16}
       style={{ flexGrow: 1 }}
     >
       {Array.from({ length: 3 }).map((item, index) => (
