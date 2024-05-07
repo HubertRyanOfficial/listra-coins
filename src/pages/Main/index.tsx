@@ -1,5 +1,10 @@
 import React from "react";
-import { View, ScrollView, ActivityIndicator } from "react-native";
+import {
+  View,
+  ScrollView,
+  ActivityIndicator,
+  SafeAreaView,
+} from "react-native";
 
 import { useShop } from "@/contexts/ShopContext";
 import { StatusBar } from "expo-status-bar";

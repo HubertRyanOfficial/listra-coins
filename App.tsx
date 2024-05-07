@@ -1,10 +1,13 @@
 import { useCallback } from "react";
-import { View, SafeAreaView } from "react-native";
+import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import * as Notifications from "expo-notifications";
+
+import colors from "./colors";
 
 import UserProvider from "@/contexts/UserContext";
 import Routes from "@/routes/index.routes";
@@ -37,10 +40,13 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1" edges={["top"]}>
       <ToastSheetProvider>
         <View className="flex-1" onLayout={onLayoutRootView}>
-          <StatusBar style="light" />
+          <StatusBar
+            style="light"
+            backgroundColor={colors["purple-heart"].DEFAULT}
+          />
           <UserProvider>
             <Routes />
           </UserProvider>

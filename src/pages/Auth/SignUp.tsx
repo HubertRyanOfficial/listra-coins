@@ -148,16 +148,8 @@ const SignUp: React.FC = () => {
           />
         </View>
         <View className="flex-row items-center gap-x-2 mt-12">
-          <TouchableOpacity>
-            <Text className="font-sora text-xs text-alabaster-300">
-              Registrar-se
-            </Text>
-          </TouchableOpacity>
-          <Text className="font-sora text-xs  text-alabaster-300">|</Text>
-          <TouchableOpacity>
-            <Text className="font-sora text-xs  text-alabaster-300">
-              Resetar senha
-            </Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text className="font-sora text-xs text-alabaster-300">Login</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
